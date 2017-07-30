@@ -1,5 +1,18 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+         var num = 1;
+         var i = 0;
+         var arr_r = [];
+         for( let j=0; j<collection.length; j++ ) {
+                   if( collection[j]===collection[j+1] ) {
+                             num++;
+                   } else {
+                             arr_r[i++] = { key:collection[j], count:num };
+                             num = 1;
+                   }
+         }
+         
+         
+  return arr_r;
 }
