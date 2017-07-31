@@ -5,9 +5,11 @@ module.exports = function countSameElements(collection) {
         var num = 0;
         var i = 0;
         var arr_r = [];
+        var reg = /(\d{1,3})/g;
         
-        for( let k=0; k<collection.length; k++ ) {    
-            num = (collection[k][2])? num+parseInt(collection[k][2]+collection[k][3]): num+1;
+        for( let k=0; k<collection.length; k++ ) {
+            var found = collection[k].match(reg);
+            num = (collection[k][2])? num+parseInt(found): num+1;
             if(k!=collection.length-1) {
                 
                    if( collection[k][0] != collection[k+1][0] ) {
