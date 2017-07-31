@@ -1,5 +1,20 @@
 'use strict';
 
 module.exports = function createUpdatedCollection(collectionA, objectB) {
-  return '实现练习要求，并改写该行代码。';
+          const arr = objectB.value;
+          for( let i=0; i<collectionA.length; i++) {
+                    var key_val = collectionA[i].key;
+                    var key_num = collectionA[i].count;
+                    for( let j=0; j<arr.length; j++) {
+                              if(key_val == arr[j] ) {
+                                        key_num--;
+                                        collectionA[i].count = key_num;
+                              }
+                    }
+             
+          }
+          
+          return (collectionA);
+
+
 }
