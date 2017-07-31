@@ -1,23 +1,26 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
+          
         var num = 0;
-            var i = 0;
-            var arr_r = [];
-            var arr_s = [];
-            for( let j=0; j<collection.length; j++) {
-                arr_s[j] = collection[j].split("");
+        var i = 0;
+        var arr_r = [];
+        
+        for( let k=0; k<collection.length; k++ ) {    
+            num = (collection[k][2])? num+parseInt(collection[k][2]+collection[k][3]): num+1;
+            if(k!=collection.length-1) {
+                
+                   if( collection[k][0] != collection[k+1][0] ) {
+                         arr_r[i++] = { name:collection[k][0], summary:num };
+                         num = 0;
+                   }
+                   
+            } else {
+                    arr_r[i++] = { name:collection[k][0], summary:num };
             }
-           for( let k=0; k<arr_s.length; k++) {
-                num = (arr_s[k][2])? num+parseInt(arr_s[k][2]+arr_s[k][3]): num+1;
-                if(k!=arr_s.length-1) {
-                    if( arr_s[k][0] != arr_s[k+1][0] ) {
-                        arr_r[i++] = { name:arr_s[k][0], summary:num };
-                        num = 0;
-                    }
-                } else {
-                    arr_r[i++] = { name:arr_s[k][0], summary:num };
-                }
-            }
-            return arr_r;
+            
+        }
+        
+        return arr_r;
+        
 }
